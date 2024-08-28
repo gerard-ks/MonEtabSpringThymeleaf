@@ -1,0 +1,16 @@
+<div th:fragment="form-report" class="conteneur-form-eleve">
+    <form method="POST" class="form-eleve">
+
+        <div class="form-group">
+            <select id="liste" name="liste" required>
+                <option value="" disabled selected>Sélectionner une option</option>
+                <option value="eleves">Liste des élèves</option>
+                <option value="professeurs">Liste des professeurs</option>
+                <option value="utilisateurs">Liste des utilisateurs</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-delete-excel">Génerer format PDF</button>
+        <button type="submit" class="btn-submit">Génerer format Excel</button>
+    </form>
+</div>

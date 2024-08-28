@@ -1,0 +1,39 @@
+<div class="conteneur-eleve" th:fragment="table-teachers(teachers)">
+    <div class="title-eleve">
+        <p th:text="'Professeurs (' + ${#lists.size(teachers)} + ')'"></p>
+        <div>
+            <a th:href="@{/teachers/add}" class="link-eleve"><i class='bx bxs-add-to-queue'></i>Nouveau professeur</a>
+        </div>
+    </div>
+    <div class="table-data-eleve">
+        <table>
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Matiere</th>
+                <th>Vacant</th>
+                <th>Date de naissance</th>
+                <th>Telephone</th>
+                <th>Ville</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="teacher : ${teachers}">
+                <td th:text="${teacher.firstName}"></td>
+                <td th:text="${teacher.lastName}"></td>
+                <td th:text="${teacher.course}"></td>
+                <td th:text="${teacher.vacant ? 'Oui' : 'Non'}"></td>
+                <td th:text="${#dates.format(teacher.dateOfBirth, 'dd-MM-yyyy')}"></td>
+                <td th:text="${teacher.phone}"></td>
+                <td th:text="${teacher.address.city}"></td>
+                <td>
+                    <a th:href="@{/teachers/edit/{id}(id=${teacher.id})}" class="btn-edit">Modifier</a>
+                    <a href="#" th:onclick="'openModal(\'' + ${teacher.id} + '\')'" class="btn-delete">Supprimer</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

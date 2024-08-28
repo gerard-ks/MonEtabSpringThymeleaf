@@ -1,0 +1,28 @@
+<div class="conteneur-eleve" th:fragment="table-users(users)">
+    <div class="title-eleve">
+        <p th:text="'Utilisateurs (' + ${#lists.size(users)} + ')'"></p>
+        <div>
+            <a th:href="@{/users/add}" class="link-eleve"><i class='bx bxs-add-to-queue'></i>Nouveau utilisateur</a>
+        </div>
+    </div>
+    <div class="table-data-eleve">
+        <table>
+            <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Date de création</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.pseudo}"></td>
+                <td th:text="${#dates.format(user.createdAt, 'dd-MM-yyyy HH:mm:ss')}"></td>
+                <td>
+                    <a th:href="@{/users/edit/{id}(id=${user.id})}" class="btn-edit">Modifier</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

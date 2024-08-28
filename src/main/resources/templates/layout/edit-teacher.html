@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout/template.html}"
+>
+<head>
+    <title>Modifier le professeur</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <section id="content">
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Professeur</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a class="active" th:href="@{/teachers}">Professeur</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="#">Modifier le professeur - <span th:text="${teacher.id}"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div th:replace="~{/fragments/form-teachers :: form-teachers(teacher=${teacher})}"></div>
+        </main>
+        <!-- MAIN -->
+    </section>
+</div>
+</body>
+</html>

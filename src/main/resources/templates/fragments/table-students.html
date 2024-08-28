@@ -1,0 +1,41 @@
+<div class="conteneur-eleve" th:fragment="table-students(students)">
+    <div class="title-eleve">
+        <p th:text="'Élèves (' + ${#lists.size(students)} + ')'">Élèves</p>
+        <div>
+            <a th:href="@{/students/add}" class="link-eleve"><i class='bx bxs-add-to-queue'></i>Nouvel élève</a>
+        </div>
+    </div>
+    <div class="table-data-eleve">
+        <table>
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Genre</th>
+                <th>Classe</th>
+                <th>Matricule</th>
+                <th>Date de naissance</th>
+                <th>Telephone</th>
+                <th>Ville</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.firstName}"></td>
+                <td th:text="${student.lastName}"></td>
+                <td th:text="${student.gender}"></td>
+                <td th:text="${student.classroom}"></td>
+                <td th:text="${student.serialNumber}"></td>
+                <td th:text="${#dates.format(student.dateOfBirth, 'dd-MM-yyyy')}"></td>
+                <td th:text="${student.phone}"></td>
+                <td th:text="${student.address.city}"></td>
+                <td>
+                    <a th:href="@{/students/edit/{id}(id=${student.id})}" class="btn-edit">Modifier</a>
+                    <a href="#" th:onclick="'openModal(\'' + ${student.id} + '\')'" class="btn-delete">Supprimer</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

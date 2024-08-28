@@ -1,0 +1,66 @@
+<div th:fragment="form-teachers(teacher)" class="conteneur-form-eleve">
+    <form th:objet="${teacher}" th:action="@{/teachers/saveFormTeacher}" method="POST" class="form-eleve">
+
+        <div class="form-group">
+            <input type="text"
+                   th:field="*{teacher.id}"
+                   hidden
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom"
+                   th:field="*{teacher.firstName}"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom"
+                   th:field="*{teacher.lastName}"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Genre :</label>
+            <select id="gender" name="gender" th:value="${teacher.gender}" required>
+                <option value="" disabled selected>Choisir un genre</option>
+                <option value="M" th:selected="${teacher.gender == 'M'}">Masculin</option>
+                <option value="F" th:selected="${teacher.gender == 'F'}">Féminin</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="course">Matiere :</label>
+            <select id="course" name="course" th:value="${teacher.course}" required>
+                <option value="" disabled selected>Choisir une matiere</option>
+                <option value="PYTHON" th:selected="${teacher.course == 'PYTHON'}">PYTHON</option>
+                <option value="JAVA" th:selected="${teacher.course == 'JAVA'}">JAVA</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="dateOfBirth">Date de naissance :</label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth"
+                   th:value="${#dates.format(teacher.dateOfBirth, 'yyyy-MM-dd')}"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label for="telephone">Téléphone :</label>
+            <input type="tel" id="telephone" name="telephone"
+                   th:field="*{teacher.phone}"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label for="ville">Ville :</label>
+            <input type="text" id="ville" name="ville"
+                   th:field="*{teacher.address.city}"
+                   required>
+        </div>
+
+        <button type="submit" class="btn-submit">Enregistrer</button>
+    </form>
+</div>

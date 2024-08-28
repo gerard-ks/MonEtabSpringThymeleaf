@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout/template.html}"
+>
+<head>
+    <title>Ajouter un eleve</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <section id="content">
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Eleve</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a class="active" th:href="@{/students}">Eleve</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="#">Ajouter un eleve</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div th:replace="~{/fragments/form-students :: form-students(student=${student})}"></div>
+        </main>
+        <!-- MAIN -->
+    </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout/template.html}"
+>
+<head>
+    <title>Home</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <section id="content">
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Tableau de bord</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a class="active" th:href="@{/}">>Tableau de bord</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <ul class="box-info">
+                <li>
+                    <i class='bx bxs-group'></i>
+                    <span class="text">
+						<h3>1020</h3>
+						<p>Nombre d'élèves</p>
+					</span>
+                </li>
+                <li>
+                    <i class='bx bxs-group'></i>
+                    <span class="text">
+						<h3>2834</h3>
+						<p>Nombre de professeurs</p>
+					</span>
+                </li>
+                <li>
+                    <i class='bx bxs-group'></i>
+                    <span class="text">
+						<h3>2543</h3>
+						<p>Nombre d'utilisateurs</p>
+					</span>
+                </li>
+                <li>
+                    <span class="text canvas">
+						<p>Eleves par genre</p>
+                        <canvas id="myPieChart" width="300" height="300"></canvas>
+					</span>
+                </li>
+            </ul>
+
+        </main>
+        <!-- MAIN -->
+    </section>
+</div>
+</body>
+</html>
